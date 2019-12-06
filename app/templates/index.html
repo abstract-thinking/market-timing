@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+th, td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+</style>
+<head>
+    <title>Germany Indicator</title>
+</head>
+<body>
+<table border="1" align="center" cellpadding="1">
+    <thead>
+    <tr align="center">
+        <th colspan="2">Season</th>
+        <th colspan="2">Interest</th>
+        <th colspan="3">Inflation</th>
+        <th colspan="3">Exchange</th>
+        <th></th>
+    </tr>
+    <tr align="center">
+        <th>Current month</th>
+        <th>Point</th>
+        <th>Last decision</th>
+        <th>Point</th>
+        <th>{{ result.inflation_rate_date }}</th>
+        <th>{{ result.past_inflation_rate_date }}</th>
+        <th>Point</th>
+        <th>{{ result.exchange_rate_date }}</th>
+        <th>{{ result.past_exchange_rate_date }}</th>
+        <th>Point</th>
+        <th>Sum of points</th>
+    </tr>
+    </thead>
+    <tr align="center">
+        <td>{{ result.month_name }}</td>
+        <td>{{ result.get_season_result() }}</td>
+        {% if result.get_interest_rate_result() %}
+        <td>Decrease</td>
+        {% else %}
+        <td>Increase</td>
+        {% endif %}
+        <td>{{ result.get_interest_rate_result() }}</td>
+        <td>{{ result.inflation_rate }}</td>
+        <td>{{ result.past_inflation_rate }}</td>
+        <td>{{ result.get_inflation_rate_result() }}</td>
+        <td>{{ result.exchange_rate }}</td>
+        <td>{{ result.past_exchange_rate }}</td>
+        <td>{{ result.get_exchange_rate_result() }}</td>
+        <td>{{ result.get_result() }}</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,2 @@
+FLASK_APP=timing.py
+FLASK_DEBUG=1
